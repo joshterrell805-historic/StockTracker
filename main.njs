@@ -134,6 +134,21 @@ function storeSymbolData(symbols, symbolData)
 
       for (var i = 0; i < symbols.length; ++i)
       {
+         if (!symbolData[i])
+         {
+            console.log("Symbol data for " + symbols[i] + " is missing.");
+            if (!symbolData.length)
+            {
+               console.log("Actually, the problem is that nothing was returned.");
+            }
+            else
+            {
+               console.log("None of the stocks will be logged for this mintue until this code is fixed :(");
+            }
+
+            continue;
+         }
+
          var data = symbolData[i].split(",");
          // currently yahoo surrounds symbol names in quotes
          if (data[0].charAt(0) == "\"")
