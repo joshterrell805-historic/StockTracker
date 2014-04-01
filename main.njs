@@ -220,6 +220,9 @@ getSymbols(function(symbols)
    loop();
 });
 
+var errCount = 0;
+var maxConsecErrors = 10;
+
 function loop()
 {
    var now = new Date();
@@ -240,10 +243,20 @@ function loop()
       {
          if (err)
          {
-            throw err;
+            if (++errCount == maxConsecErrors)
+            {
+               throw err;
+            }
+            else
+            {
+               console.log("consecuative errors: " + errCount);
+               console.log((new Date()).toString());
+               console.log(err.toString());
+            }
          }
          else
          {
+            errCount = 0;
             storeSymbolData(global.symbols, symbolData);
          }
       });
