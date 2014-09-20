@@ -37,23 +37,8 @@ This tool is focused on larger companies, not penny stocks. Another separate too
 - to investigate
    - go.com, xhamster.com, huffingtonpost, dailymail.co.uk, about.com?, cnet.com, aol.com, nytimes.com, outbrain.com, buzzfeed.com, fiveer.com, yelp.com, slideshare.net, salesforce.com, forbes.com, theguardian.com, weather.com, livejournal.com, stumbleupon.com, mashable.com, addthis.com, zillow.com, statcounter.com, disqus.com, theladbible.com, blackhatworld.com
 
-##### Companies to Stalk
+#### Revision 1
 
-- Tech
-   - Adobe, Facebook, oracle, GoDaddy, Amazon, cloudfront,
-   - Boing, Western,
-   - Google, Yahoo,
-   - DirectTV, Charter, Verizon, AT&T, Comcast, DigitalWest,
-   - Microsoft, HP, Toshiba, Sony, Apple, Nintendo, Dell, Acer, Lenovo,
-- Consumer
-   - Walmart, Target, Ebay, Home Deopot, Lowes, big5
-- Food
-   - Coke, Pepsi, McDonalds, Burger King, Taco Bell, Dominos, olive garden, in-n-out,
-- Resources
-   - Exxon, Shell, PG&E, UPS, usps, fedex, USA
-- Residence
-   - Booking.com, Hilton, tripadvisor.com, expedia, 
-- Banks
-   - Chase, BankofAmerica, Wellsfargo, Hdfcbank, americanexpress, capitolone, citibank, robobank, 
-- Entertainment
-   - NFL?, Pandora, Pixar, Disney, battle.net, blizzard, hulu, netflix, steam
+I'm only going to have enough time to get RSS feeds and stock data working, however I'm fairly certain that's more than enough data. The possibilities with this amount of data are vast, and I'm fairly certain that if there is correlation between stocks and news, RSS feeds should depict it.
+
+Originally I was going to scrape websites for info too (with formats other than RSS).

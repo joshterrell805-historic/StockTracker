@@ -1,10 +1,15 @@
+   ------------FORMAT---------------
+
    Lines indented by at least one whitespace character are comments.
    All other lines are urls to feeds to check.
 
+
+   -------------FEEDS---------------
+
    FOX
+   more fox to check: http://www.foxnews.com/about/rss/
 
 http://feeds.foxnews.com/foxnews/latest
-   more fox to check: http://www.foxnews.com/about/rss/
 
    CNN
 
