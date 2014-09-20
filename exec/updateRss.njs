@@ -11,9 +11,9 @@ var Promise = require('promise'),
     fs = require('fs'),
     _ = require('underscore');
 
-var userFeedsPath = '../data/feeds';
-var trackedFeedsPath = '../data/trackedFeeds.json';
-var updatedFeedsDirPath = '../data/updatedFeeds';
+var userFeedsPath = 'data/feeds';
+var trackedFeedsPath = 'data/trackedFeeds.json';
+var updatedFeedsDirPath = 'data/updatedFeeds';
 
 /**
  * Get the user-defined feeds are stored in data/feeds

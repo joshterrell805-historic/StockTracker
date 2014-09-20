@@ -13,9 +13,8 @@ var Promise = require('promise'),
     fs = require('fs'),
     _ = require('underscore');
 
-var userFeedsPath = '../data/feeds';
-var trackedFeedsPath = '../data/trackedFeeds.json';
-var updatedFeedsDirPath = '../data/updatedFeeds';
+var symbolsPath = 'data/symbols';
+var symbolDataPath = 'data/symbolData';
 
 readFile = function() {
    var read = Promise.denodeify(fs.readFile);
@@ -33,42 +32,43 @@ writeFile = function() {
 }();
 
 /**
- * @resolve: true/false for if the stock market is open.
- */
-function isOpen() {
-}
-
-/**
  * @resolve: array of string symbols
  */
 function getSymbols() {
+   return readFile(symbolsPath)
+   .then(function(data) {
+      var lines = data.split('\n');
+
+      return lines.reduce(function(symbols, line) {
+         if (line !== '' && !/^\s/.test(line)) {
+            var lineSymbols = line.split(', ');
+            symbols = symbols.concat(lineSymbols);
+         }
+
+         return symbols;
+      }, []);
+   });
 }
 
 /**
  * @resolve: when the stock data has been appended to the stocks file.
  */
 function writeDataToFile(data) {
+   var timestamp = Date.now();
+   var path = symbolDataPath + '/' + timestamp + '.json';
+   // TODO if exists + pid? should uniqueify it
+   return writeFile(path, JSON.stringify(data));
 }
 
 Promise.resolve()
 .then(function() {
    Stats.record('StockTracker.market.start');
 })
-.then(isOpen)
-.then(function(isOpen) {
-   if (!isOpen) {
-      return Promise.resolve();
-   }
-
-   var symbolsP = getSymbols();
-
-   return getSymbols()
-   .then(function(symbols) {
-
-      return MarketRetriever.retrieve({symbols: symbols})
-      .then(writeDataToFile);
-   });
+.then(getSymbols)
+.then(function(symbols) {
+   return MarketRetriever.retrieve({symbols: symbols})
 })
+.then(writeDataToFile);
 .done(function() {
    Stats.record('StockTracker.market.stop');
 },
