@@ -5,11 +5,13 @@
  *  running and save them to disk.
  */
 
-var Promise = require('promise'),
+var ExtendableError = require('ExtendableError'),
+    Promise = require('promise'),
     retrieveRss = require('../lib/RssRetriever.njs').retrieve,
     Stats = require('../lib/Stats.njs'),
     fs = require('fs'),
-    _ = require('underscore');
+    _ = require('underscore'),
+    debug = require('debug')('StockTracker:rss:fetch');
 
 var userFeedsPath = 'data/feeds';
 var trackedFeedsPath = 'data/trackedFeeds.json';
@@ -27,6 +29,7 @@ var updatedFeedsDirPath = 'data/updatedFeeds';
  *    {url, etag, lastModified}
  */
 function getFeeds() {
+   debug('getFeeds');
    var userP = getUserFeeds();
    var trackedP = getTrackedFeeds();
    return Promise.all([userP, trackedP]).then(function(all) {
@@ -39,8 +42,8 @@ function getFeeds() {
          if (!feed) {
             feed = {
                url: url,
-               etag: etag,
-               lastModified: lastModified,
+               etag: null,
+               lastModified: null,
             };
          }
 
@@ -94,6 +97,7 @@ function getUpdatedFeeds(feeds) {
             Stats.record('StockTracker.rss.fetch.error', {
                url: url,
                code: err.code,
+               message: err.message,
             });
 
             checkDone();
@@ -120,8 +124,7 @@ readFile = function() {
 writeFile = function() {
    var write = Promise.denodeify(fs.writeFile);
    return function(path, data) {
-      // TODO
-      return write(path, {encoding: 'utf-8'}, data);
+      return write(path, data, {encoding: 'utf-8'});
    };
 }();
 
@@ -129,11 +132,12 @@ writeFile = function() {
  * @resolve: array of urls
  */
 function getUserFeeds() {
+   debug('getUserFeeds');
    return readFile(userFeedsPath)
    .then(function(data) {
       var lines = data.split('\n');
       return lines.reduce(function(urls, line) {
-         if (line !== '' && !line.matches(/^\s/)) {
+         if (line !== '' && !/^\s/.test(line)) {
             urls.push(line);
          }
 
@@ -146,6 +150,7 @@ function getUserFeeds() {
  * @resolve: array of feed hash (url, etag, lastModified)
  */
 function getTrackedFeeds() {
+   debug('getTrackedFeeds');
    return readFile(trackedFeedsPath)
    .then(JSON.parse);
 }
@@ -161,7 +166,7 @@ function saveTrackedFeeds(feeds) {
  * @param updatedFeedChannels array: array of hash of {url, channels}
  */
 function saveUpdatedFeeds(updatedFeedChannels) {
-   var timestamp = Date.now().getTime();
+   var timestamp = Date.now();
    var path = updatedFeedsDirPath + '/' + timestamp + '.json';
    // TODO if exists + pid? should uniqueify it
    return writeFile(path, JSON.stringify(updatedFeedChannels));
@@ -178,9 +183,16 @@ Promise.resolve()
    .then(function(updatedFeeds) {
 
       // update the etag and lastModified date
-      var saveFeeds = feeds.map(function(trackedFeed) {
-         var updatedFeed = _.find(updatedFeeds, {url: trackedFeed.url});
-         updatedFeed = _.pick(updatedFeed, 'url', 'etag', 'lastModified');
+      var saveFeeds = trackedFeeds.map(function(trackedFeed) {
+         var updatedFeed = _.findWhere(updatedFeeds, {url: trackedFeed.url});
+         if (updatedFeed) {
+            updatedFeed = {
+               url: updatedFeed.url,
+               etag: updatedFeed.rss.etag,
+               lastModified: updatedFeed.rss.lastModified,
+            };
+            debug('updated %o', updatedFeed);
+         }
          return _.defaults({}, updatedFeed, trackedFeed);
       });
       var saveTrackedP = saveTrackedFeeds(saveFeeds);
@@ -201,7 +213,6 @@ Promise.resolve()
    Stats.record('StockTracker.rss.finish');
 },
 function(err) {
-   // TODO
    Stats.record('StockTracker.rss.fatalError', err.toString());
    throw err;
 });

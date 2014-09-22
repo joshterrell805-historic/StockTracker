@@ -1,2 +1,6 @@
 *.sw*
 node_modules
+data/updatedFeeds/*.json
+data/symbolData/*.json
+log/*.log
+data/trackedFeeds.json

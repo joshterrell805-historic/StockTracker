@@ -29,7 +29,7 @@ http://rss.cnn.com/rss/cnn_studentnews.rss
 http://rss.cnn.com/rss/cnn_mostpopular.rss
 http://rss.cnn.com/rss/cnn_latest.rss
 http://rss.ireport.com/feeds/oncnn.rss
-http://rss.cnn.com/rss/cnn_behindthescenes.rss
+   http://rss.cnn.com/rss/cnn_behindthescenes.rss (private)
 http://rss.cnn.com/rss/money_topstories.rss
 http://rss.cnn.com/rss/money_mostpopular.rss
 http://rss.cnn.com/rss/money_news_companies.rss
@@ -38,7 +38,7 @@ http://rss.cnn.com/rss/money_news_economy.rss
 http://rss.cnn.com/rss/money_video_business.rss
 http://rss.cnn.com/rss/money_media.rss
 http://rss.cnn.com/rss/money_markets.rss
-http://rss.cnn.com/cnnmoneymorningbuzz
+   http://rss.cnn.com/cnnmoneymorningbuzz (private)
 http://rss.cnn.com/rss/money_technology.rss
 http://rss.cnn.com/rss/money_pf.rss
 http://rss.cnn.com/rss/money_autos.rss
@@ -78,27 +78,6 @@ http://feeds.abcnews.com/abcnews/thisweekheadlines
 http://feeds.abcnews.com/abcnews/mostreadstories
 http://feeds.abcnews.com/abcnews/mostviewedslideshows
 http://feeds.abcnews.com/abcnews/mostviewedvideos
-http://feeds.abcnews.com/abcnews/usvideos
-http://feeds.abcnews.com/abcnews/internationalvideos
-http://feeds.abcnews.com/abcnews/politicsvideos
-http://feeds.abcnews.com/abcnews/brianrossvideo
-http://feeds.abcnews.com/abcnews/healthvideos
-http://feeds.abcnews.com/abcnews/entertainmentvideos
-http://feeds.abcnews.com/abcnews/businessvideos
-http://feeds.abcnews.com/abcnews/technologyvideos
-http://feeds.abcnews.com/abcnews/travelvideos
-http://feeds.abcnews.com/abcnews/extremevideo
-http://feeds.abcnews.com/abcnews/caughtontapevideo
-http://feeds.abcnews.com/abcnews/abcnewsaudio
-http://feeds.abcnews.com/abcnews/gmavideos
-http://feeds.abcnews.com/abcnews/gmarecipesvideo
-http://feeds.abcnews.com/abcnews/gmaconcertseriesvideos
-http://feeds.abcnews.com/abcnews/worldnewsvideos
-http://feeds.abcnews.com/abcnews/nightlinevideos
-http://feeds.abcnews.com/abcnews/2020videos
-http://feeds.abcnews.com/abcnews/primetimevideos
-http://feeds.abcnews.com/abcnews/whatwouldyoudovideos
-http://feeds.abcnews.com/abcnews/thisweekvideos
 http://feeds.abcnews.com/headlinesblog
 http://feeds.abcnews.com/politicsblog
 http://feeds.abcnews.com/businessblog
