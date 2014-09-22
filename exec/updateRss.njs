@@ -152,6 +152,13 @@ function getUserFeeds() {
 function getTrackedFeeds() {
    debug('getTrackedFeeds');
    return readFile(trackedFeedsPath)
+   .then(null, function(err) {
+      if (err.code === 'ENOENT') {
+         return '{}';
+      }
+
+      throw err;
+   })
    .then(JSON.parse);
 }
 
