@@ -6,6 +6,7 @@
       "minimist": "*",
       "underscore": "*",
       "debug": "*",
-      "ExtendableError": "git://github.com/joshterrell805/ExtendableError.git"
+      "ExtendableError": "git://github.com/joshterrell805/ExtendableError.git",
+      "mysql":""
    }
 }
