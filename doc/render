@@ -1,0 +1,10 @@
+#/bin/bash
+
+files="$(ls *.markdown)"
+
+files=(${files//\\n/ })
+
+for i in ${files[@]}; do
+  i=${i%.markdown}
+  markdown $i.markdown > $i.html
+done
