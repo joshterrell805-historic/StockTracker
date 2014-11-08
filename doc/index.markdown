@@ -8,6 +8,7 @@ Another application will be made for analyzing the data this application produce
 - [Tracking RSS Feeds](tracking-rss-feeds.html)
 - [Recording Market Data](recording-market-data.html)
 - [Directory Structure](directory-structure.html)
+- [TODO](TODO.html)
 
 ## Brief overview
 The goal of this app is to **record stock data** that I can later analyze.
