@@ -33,35 +33,19 @@
  *      description: "description of item",
  *      pubDate: "date item was published",
  */
-module.exports = {
-  Retriever: Retriever,
-  retrieve: retrieve,
-  MAX_REDIRECTS: 5,
-  MAX_RESPONSE_SIZE: 1024 * 512, // 512 KiB
-  temp: function(filename) {
-    var etag = 'shiz';
-    var lastModified = 'today';
-
-    return Promise.denodeify(require('fs').readFile)(filename,
-        {encoding: 'utf-8'})
-    .then(parseXml)
-    .then(Retriever.prototype._extractChannels.bind(this))
-    .then(function(channels) {
-      return {
-        etag: etag,
-        lastModified: lastModified,
-        channels: channels,
-      }
-    });
-  },
-};
+module.exports = retrieve;
+retrieve.Retriever = Retriever;
+retrieve.retrieve = retrieve;
+retrieve.MAX_REDIRECTS = 5;
+retrieve.MAX_RESPONSE_SIZE = 1024 * 512; // 512 KiB
 
 var Promise = require('promise'),
    http = require('http'),
    https = require('https'),
    url = require('url'),
    xml2js = require('xml2js'),
-   Stats = require('./Stats.njs');
+   Stats = require('./lib/Stats.njs');
+   require('ExtendableError');
 
 var parseXml = Promise.denodeify(xml2js.parseString);
 

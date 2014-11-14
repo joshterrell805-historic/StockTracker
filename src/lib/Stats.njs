@@ -4,6 +4,7 @@ module.exports = {
 
 var fs = require('fs'),
     util = require('util');
+// TODO this should be specified elsewhere.
 var logPath = 'log/stats.log';
 
 /**

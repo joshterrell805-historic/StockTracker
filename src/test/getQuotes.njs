@@ -17,7 +17,7 @@ describe('getQuotes', function() {
     });
 
     it('should get data for a large amount of symbols in multiple requests', function(done) {
-      getQuotes.maxQuotesPerRequest = 1;
+      getQuotes.maxQuotesPerRequest = 2;
       getQuotes(['MSFT', 'GOOG', 'AAPL']).done(function (quotes) {
         assert.equal(quotes.length, 3);
         done();
