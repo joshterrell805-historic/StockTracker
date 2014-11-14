@@ -1,27 +1,45 @@
-# Tech
-Adobe, Facebook, oracle, GoDaddy, Amazon, cloudfront
-Boing, Western
-Google, Yahoo
-DirectTV, Charter, Verizon, AT&T, Comcast, DigitalWest
-Microsoft, HP, Toshiba, Sony, Apple, Nintendo, Dell, Acer, Lenovo
+# --------- Tech ---------
+# Adobe, Facebook, Oracle, Amazon
+ADBE, FB, ORCL, AMZN
+# Boeing, SouthWest Airlines, Virgin America
+BA, LUV, VA
+# Google, Yahoo
+GOOG, GOOGL, YHOO
+# Western Digital, DirectTV, Charter, Verizon, AT&T, Comcast, Time Warner, Sprint
+WDC, DTV, CHTR, VZ, VZA, T, CMCSA, CMCSK, CCZ, CCV, TWX, TWC, S
+# Microsoft, HP, Toshiba, Sony, Apple
+MSFT, HPQ, TOSBF, SNE, AAPL
 
-# Consumer
-Walmart, Target, Ebay, Home Deopot, Lowes, big5
+# --------- Consumer ---------
+# Walmart, Target, Ebay, Home Deopot, Lowes, big5
+WMT, TGT, EBAY, HD, LOW, BGFV
 
-# Food
-Coke, Pepsi, McDonalds, Burger King, Taco Bell, Dominos, olive garden, in-n-out
+# --------- Food ---------
+# Coke, Pepsi, Snapple/Dr Pepper, McDonalds, Burger King, Red Robin, Dominos
+COKE, PEP, DPS, MCD, BKW, RRGB, DPZ
 
-# Resources
-Exxon, Shell, PG&E, UPS, usps, fedex, USA
+# --------- Resources ---------
+# Exxon, Shell, PG&E, UPS, fedex
+XOM, RDS-A, RDS-B, PCG, UPS, FDX
 
-# Residence
-Booking.com, Hilton, tripadvisor.com, expedia
+# --------- Residence ---------
+# Hilton, tripadvisor.com, expedia
+HLT, HCYAX, HCYIX, TRIP, EXPE
 
-# Banks
-Chase, BankofAmerica, Wellsfargo, Hdfcbank, americanexpress, capitolone, citibank, robobank
+# --------- Banks ---------
+# Chase, BankofAmerica, Wellsfargo, Hdfcbank, americanexpress, citibank
+CCF, BAC, WFC, HDB, AXP, C
 
-# Entertainment
-NFL, Pandora, Pixar, Disney, battle.net, blizzard, hulu, netflix, steam
+# --------- Entertainment ---------
+# Disney, blizzard, netflix, Fox, Pandora
+DIS, ATVI, NFLX, FOX, FOXA, FOXF, P
+# Time, Maxim
+TIME, MMS, MXIM
    
-# Indexes
-NASDQ, S&P500, DOW
+# --------- Indexes ---------
+# NASDQ, Walmart, S&P500, DOW
+^IXIC, ^NDX, ^WMX, ^GSPC, ^DJI, ^DJA, ^DJT, ^DJU
+
+# --------- Insurance ---------
+# Progressive
+PGR
