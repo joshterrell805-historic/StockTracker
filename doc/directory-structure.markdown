@@ -23,12 +23,8 @@
         <td>a dump of a lot of histoical data from etrade going decades back</td>
       </tr>
       <tr>
-        <td>/data/ticker</td>
+        <td>/data/quotes</td>
         <td>recorded data about ticker symbols that hasn't been transfered to the storage server yet</td>
-      </tr>
-      <tr>
-        <td>/data/index</td>
-        <td>recorded data about market-indexes that hasn't been transfered to the storage server yet</td>
       </tr>
       <tr>
         <td>/data/rss</td>
