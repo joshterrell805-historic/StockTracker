@@ -1,0 +1,5 @@
+/trackedFeeds.json
+/rss/*
+/quotes/*
+!/quotes/.gitsave
+!/rss/.gitsave

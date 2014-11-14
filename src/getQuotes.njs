@@ -3,8 +3,8 @@
  */
 module.exports = getQuotes;
 
-var Promise = require('promise'),
-    fields = require('./data/ticker-symbol-fields.njs'),
+require('utils');
+var fields = require('./data/ticker-symbol-fields.njs'),
     http = require('http'),
     debug = require('debug')('StockTracker:getQuotes');
 

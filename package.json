@@ -1,11 +1,9 @@
 {
    "dependencies": {
       "xml2js": "*",
-      "promise": "*",
       "cheerio": "*",
       "minimist": "*",
-      "underscore": "*",
       "debug": "*",
-      "ExtendableError": "git://github.com/joshterrell805/ExtendableError.git"
+      "utils": "git://github.com/joshterrell805/utils.git"
    }
 }

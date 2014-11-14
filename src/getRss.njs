@@ -39,13 +39,12 @@ retrieve.retrieve = retrieve;
 retrieve.MAX_REDIRECTS = 5;
 retrieve.MAX_RESPONSE_SIZE = 1024 * 512; // 512 KiB
 
-var Promise = require('promise'),
-   http = require('http'),
-   https = require('https'),
-   url = require('url'),
-   xml2js = require('xml2js'),
-   Stats = require('./lib/Stats.njs');
-   require('ExtendableError');
+require('utils');
+var http = require('http'),
+    https = require('https'),
+    url = require('url'),
+    xml2js = require('xml2js'),
+    Stats = require('./lib/Stats.njs');
 
 var parseXml = Promise.denodeify(xml2js.parseString);
 

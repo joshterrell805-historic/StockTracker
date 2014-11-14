@@ -1,17 +1,9 @@
-   ------------FORMAT---------------
-
-   Lines indented by at least one whitespace character are comments.
-   All other lines are urls to feeds to check.
-
-
-   -------------FEEDS---------------
-
-   FOX
-   more fox to check: http://www.foxnews.com/about/rss/
+# FOX
+# more fox to check: http://www.foxnews.com/about/rss/
 
 http://feeds.foxnews.com/foxnews/latest
 
-   CNN
+# CNN
 
 http://rss.cnn.com/rss/cnn_topstories.rss
 http://rss.cnn.com/rss/cnn_world.rss
@@ -29,7 +21,7 @@ http://rss.cnn.com/rss/cnn_studentnews.rss
 http://rss.cnn.com/rss/cnn_mostpopular.rss
 http://rss.cnn.com/rss/cnn_latest.rss
 http://rss.ireport.com/feeds/oncnn.rss
-   http://rss.cnn.com/rss/cnn_behindthescenes.rss (private)
+# http://rss.cnn.com/rss/cnn_behindthescenes.rss (private)
 http://rss.cnn.com/rss/money_topstories.rss
 http://rss.cnn.com/rss/money_mostpopular.rss
 http://rss.cnn.com/rss/money_news_companies.rss
@@ -38,7 +30,7 @@ http://rss.cnn.com/rss/money_news_economy.rss
 http://rss.cnn.com/rss/money_video_business.rss
 http://rss.cnn.com/rss/money_media.rss
 http://rss.cnn.com/rss/money_markets.rss
-   http://rss.cnn.com/cnnmoneymorningbuzz (private)
+# http://rss.cnn.com/cnnmoneymorningbuzz (private)
 http://rss.cnn.com/rss/money_technology.rss
 http://rss.cnn.com/rss/money_pf.rss
 http://rss.cnn.com/rss/money_autos.rss
@@ -52,11 +44,11 @@ http://rss.cnn.com/rss/money_realestate.rss
 http://rss.cnn.com/rss/money_luxury.rss
 http://rss.cnn.com/rss/money_smbusiness.rss
 
-   NBC
+# NBC
 
 http://feeds.nbcnews.com/feeds/topstories
 
-   ABC
+# ABC
 
 http://feeds.abcnews.com/abcnews/topstories
 http://feeds.abcnews.com/abcnews/internationalheadlines
@@ -86,7 +78,7 @@ http://feeds.abcnews.com/entertainmentblog
 http://feeds.abcnews.com/lifestyleblog
 http://feeds.abcnews.com/healthblog
 
-   YAHOO
+# YAHOO
 
 https://answers.yahoo.com/rss/allq?filter=intl&tab=popular
 http://news.yahoo.com/rss/
