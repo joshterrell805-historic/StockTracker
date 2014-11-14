@@ -20,7 +20,7 @@ function record(id, data, timestamp) {
    log(event);
 }
 
-var fd = fs.openSync(logPath, 'w');
+var fd = fs.openSync(logPath, 'a');
 function log(event) {
    // var dataStr = event.data ? util.inspect(event.data, {depth: null}) : '';
    var dataStr = event.data ? JSON.stringify(event.data) : '';

@@ -35,7 +35,7 @@ function getSymbols() {
  */
 function writeDataToFile(data) {
   var timestamp = Date.now();
-  var path = saveQuotesPath + '/' + timestamp;
+  var path = saveQuotesPath + '/' + timestamp + '.json';
   return Utils.writeFile(path, JSON.stringify(data));
 }
 
