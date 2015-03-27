@@ -1,0 +1,47 @@
+#!/bin/bash
+
+################### Wake the server and verify connection success #############
+moneta-wake
+count=0
+while [[ $count != 5 ]]; do
+  let "count += 1"
+  echo "try connect $count"
+  output=$(ssh moneta "echo asdf")
+  if [[ $output = "asdf" ]]; then
+    break
+  else
+    sleep 1
+  fi
+done
+if [[ $connected == false ]]; then
+  echo "connection failed"
+  exit -1
+else
+  echo "connection successful"
+fi
+
+############# Upload quotes dir ################################################
+shopt -s nullglob
+set -e
+echo "uploading quotes"
+cd ~/repos/StockTracker/data/quotes/
+filenames=(*.json)
+for i in "${filenames[@]}"; do
+  scp $i moneta:~/stock-data/quotes/$i
+  rm $i
+done
+echo "upload complete"
+
+############# Upload rss dir ###################################################
+echo "uploading rss"
+cd ~/repos/StockTracker/data/rss/
+filenames=(*.json)
+for i in "${filenames[@]}"; do
+  scp $i moneta:~/stock-data/rss/$i
+  rm $i
+done
+echo "upload complete"
+
+
+moneta-sleep
+exit 0
