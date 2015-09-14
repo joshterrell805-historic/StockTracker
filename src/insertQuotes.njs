@@ -43,26 +43,25 @@ pMysql.pQuery('select unix_timestamp(max(ts)) as ts from quotes')
 .done();
 
 function pInsert(ts, quotes) {
-  return Promise.all(
-    _.map(quotes, function(quote) {
+  var p = _.chain(quotes)
+  .map(function(quote) {
       if (quote === null) {
         // No such ticker symbol.
-        return;
+        return null;
+      } else {
+        var params = _.values(_.pick(quote, 's', 'v', 'l1'));
+        params.splice(1, 0, ts);
+        return params;
       }
+  })
+  .filter()
+  .value();
 
-      var params =
-          _.values(_.pick(quote, 's', 'a', 'a5', 'b', 'b6', 'v', 'l1'));
-      params.splice(1, 0, ts);
+  var q = 'insert into quotes (symbol, ts, volume, ' + 'last_trade) values ' +
+  q += _.times(p.length, _.constant(
+      '(select id from symbols s where s.symbol = ?), ' +
+      'from_unixtime(?), ?, ?)')).join(',');
+  p = _.flatten(p);
 
-      return pMysql.pQuery('insert into quotes (symbol, ts, ask, ask_size, ' +
-          'bid, bid_size, volume, last_trade) values (' +
-          '(select id from symbols s where s.symbol = ?)' +
-          ', from_unixtime(?), ?, ?, ?, ?, ?, ?)',
-          params
-      )
-      .then(function(res) {
-        assert.strictEqual(res.affectedRows, 1);
-      })
-    })
-  );
+  return pMysql.pQuery(q, p);
 }
