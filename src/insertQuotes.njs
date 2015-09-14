@@ -57,9 +57,9 @@ function pInsert(ts, quotes) {
   .filter()
   .value();
 
-  var q = 'insert into quotes (symbol, ts, volume, ' + 'last_trade) values ' +
+  var q = 'insert into quotes (symbol, ts, volume, last_trade) values ';
   q += _.times(p.length, _.constant(
-      '(select id from symbols s where s.symbol = ?), ' +
+      '((select id from symbols s where s.symbol = ?), ' +
       'from_unixtime(?), ?, ?)')).join(',');
   p = _.flatten(p);
 
