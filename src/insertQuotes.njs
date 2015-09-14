@@ -12,17 +12,11 @@ var pReaddir = Promise.promisify(fs.readdir),
 var pMysql = new PMysql(require('./mysql-config.js'));
 pMysql.start();
 
-// yahoo finance api returned some csvs with commas in the numbers x.x
-// looks like all numbers are fixed after this timestamp
-// var lastBadTimestamp = 1425686403939;
-var lastBadTimestamp = 1425700202025;
-
 pReaddir(quotesDir)
 .then(function(filenames) {
   return Promise.each(filenames, function(filename) {
     var ts = parseInt(filename.substr(0, filename.length - '.json'.length));
-    if (ts > lastBadTimestamp &&
-        filename.indexOf('.json') === filename.length - '.json'.length) {
+    if (filename.indexOf('.json') === filename.length - '.json'.length) {
       console.log(ts);
       return pReadFile(quotesDir + filename)
       .then(JSON.parse)
