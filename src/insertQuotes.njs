@@ -32,6 +32,10 @@ pReaddir(quotesDir)
 function pInsert(ts, quotes) {
   return Promise.all(
     _.map(quotes, function(quote) {
+      if (quote === null) {
+        // No such ticker symbol.
+        return;
+      }
       var params = _.values(_.pick(quote, 's', 'a', 'a5', 'l1', 'b6', 'v'));
       params.splice(1, 0, ts);
       if (_.filter(params, function(p) {return p!==null;}).length <

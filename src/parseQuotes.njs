@@ -12,6 +12,10 @@ module.exports = parseQuotes;
 function parseQuotes(quotes) {
   return _.chain(quotes)
   .map(function(quoteString, index) {
+    if (quoteString.indexOf('No such ticker symbol.') !== -1) {
+      return null;
+    }
+
     var curIdx = 0;
     var values = [];
 
