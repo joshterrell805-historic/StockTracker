@@ -1,0 +1,23 @@
+create database stocks;
+
+use stocks;
+
+create table symbols (
+  id int not null auto_increment,
+  symbol varchar(255) not null unique,
+  primary key (id)
+);
+
+create table quotes (
+  symbol int not null,
+  ts timestamp not null,
+  ask decimal(5,2) not null,
+  ask_size int not null,
+  bid decimal(5,2) not null,
+  bid_size int not null,
+  volume int not null,
+  foreign key (symbol) references symbols(id),
+  primary key (symbol, ts)
+);
+
+insert into symbols (symbol) values ('ADBE'), ('FB'), ('ORCL'), ('AMZN'), ('BA'), ('LUV'), ('VA'), ('GOOG'), ('GOOGL'), ('YHOO'), ('WDC'), ('DTV'), ('CHTR'), ('VZ'), ('VZA'), ('T'), ('CMCSA'), ('CMCSK'), ('CCZ'), ('CCV'), ('TWX'), ('TWC'), ('S'), ('MSFT'), ('HPQ'), ('TOSBF'), ('SNE'), ('AAPL'), ('WMT'), ('TGT'), ('EBAY'), ('HD'), ('LOW'), ('BGFV'), ('COKE'), ('PEP'), ('DPS'), ('MCD'), ('BKW'), ('RRGB'), ('DPZ'), ('XOM'), ('RDS-A'), ('RDS-B'), ('PCG'), ('UPS'), ('FDX'), ('HLT'), ('HCYAX'), ('HCYIX'), ('TRIP'), ('EXPE'), ('CCF'), ('BAC'), ('WFC'), ('HDB'), ('AXP'), ('C'), ('DIS'), ('ATVI'), ('NFLX'), ('FOX'), ('FOXA'), ('FOXF'), ('P'), ('TIME'), ('MMS'), ('MXIM'), ('^IXIC'), ('^NDX'), ('^WMX'), ('^GSPC'), ('^DJI'), ('^DJA'), ('^DJT'), ('^DJU'), ('PGR');
