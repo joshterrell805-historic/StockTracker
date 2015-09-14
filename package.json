@@ -5,6 +5,7 @@
       "minimist": "*",
       "debug": "*",
       "bluebird": "*",
-      "lodash": "*"
+      "lodash": "*",
+      "pmysql": "*"
    }
 }
