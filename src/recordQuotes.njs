@@ -6,29 +6,11 @@
 
 require('utils');
 var Stats = require('./lib/Stats.njs'),
-    getQuotes = require('./getQuotes.njs');
+    getQuotes = require('./getQuotes.njs'),
+    getSymbols = require('./pSymbols.njs');
 
 var symbolsPath = 'data/symbols';
 var saveQuotesPath = 'data/quotes';
-
-/**
- * @resolve: array of string symbols
- */
-function getSymbols() {
-  return Utils.readFile(symbolsPath)
-  .then(function(data) {
-    var lines = data.split('\n');
-
-    return lines.reduce(function(symbols, line) {
-      if (line !== '' && !/^#/.test(line)) {
-        var lineSymbols = line.split(', ');
-        symbols = symbols.concat(lineSymbols);
-      }
-
-      return symbols;
-    }, []);
-  });
-}
 
 /**
  * @resolve: when the stock data has been written to file.

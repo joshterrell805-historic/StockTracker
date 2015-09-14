@@ -1,12 +1,12 @@
 module.exports = [
   'a'    /* Ask */
 , 'a2'   /* Average Daily Volume */
-, 'a5'   /*,Ask Size */      
+, 'a5'   /* Ask Size */      
 , 'b'    /* Bid */
 , 'b2'   /* Ask (Real-time) */
 , 'b3'   /* Bid (Real-time) */      
 , 'b4'   /* Book Value */
-, 'b6'   /*,Bid Size */
+, 'b6'   /* Bid Size */
 , 'c'    /* Change & Percent Change */      
 , 'c1'   /* Change */
 , 'c3'   /* Commission */
@@ -20,7 +20,7 @@ module.exports = [
 , 'e7'   /* EPS Estimate Current Year */
 , 'e8'   /* EPS Estimate Next Year */
 , 'e9'   /* EPS Estimate Next Quarter */      
-, 'f6'   /*,Float Shares */
+, 'f6'   /* Float Shares */
 , 'g'    /* Day’s Low */
 , 'h'    /* Day’s High */      
 , 'j'    /* 52-week Low */
@@ -73,7 +73,6 @@ module.exports = [
 , 's1'   /* Shares Owned */      
 , 's7'   /* Short Ratio */
 , 't1'   /* Last Trade Time */
-//, 't6'   /* Trade Links */      
 , 't7'   /* Ticker Trend */
 , 't8'   /* 1 yr Target Price */
 , 'v'    /* Volume */      

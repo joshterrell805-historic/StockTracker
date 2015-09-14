@@ -4,6 +4,7 @@
       "cheerio": "*",
       "minimist": "*",
       "debug": "*",
-      "utils": "git://github.com/joshterrell805/utils.git"
+      "bluebird": "*",
+      "lodash": "*"
    }
 }

@@ -35,7 +35,7 @@ CCF, BAC, WFC, HDB, AXP, C
 DIS, ATVI, NFLX, FOX, FOXA, FOXF, P
 # Time, Maxim
 TIME, MMS, MXIM
-   
+
 # --------- Indexes ---------
 # NASDQ, Walmart, S&P500, DOW
 ^IXIC, ^NDX, ^WMX, ^GSPC, ^DJI, ^DJA, ^DJT, ^DJU
