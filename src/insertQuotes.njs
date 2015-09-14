@@ -12,17 +12,30 @@ var pReaddir = Promise.promisify(fs.readdir),
 var pMysql = new PMysql(require('./mysql-config.js'));
 pMysql.start();
 
-pReaddir(quotesDir)
+var nextTs = null;
+pMysql.pQuery('select unix_timestamp(max(ts)) as ts from quotes')
+.then(function(res) {
+  assert.strictEqual(res.length, 1);
+  nextTs = parseInt(res[0].ts || 0);
+  console.log('continuing from: ' + nextTs);
+  return pMysql.pQuery('delete from quotes where ts = from_unixtime(?)',
+      [nextTs]);
+})
+.then(function() {
+  return pReaddir(quotesDir);
+})
 .then(function(filenames) {
   return Promise.each(filenames, function(filename) {
     var ts = parseInt(filename.substr(0, filename.length - '.json'.length));
-    if (filename.indexOf('.json') === filename.length - '.json'.length) {
+    ts = Math.floor(ts/1000);
+    if (ts >= nextTs &&
+        filename.indexOf('.json') === filename.length - '.json'.length) {
       console.log(ts);
       return pReadFile(quotesDir + filename)
       .then(JSON.parse)
       .then(parseQuotes)
       .then(function(quotes) {
-        return pInsert(Math.floor(ts/1000), quotes);
+        return pInsert(ts, quotes);
       });
     }
   });
