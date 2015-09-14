@@ -36,17 +36,25 @@ function pInsert(ts, quotes) {
         // No such ticker symbol.
         return;
       }
-      var params = _.values(_.pick(quote, 's', 'a', 'a5', 'l1', 'b6', 'v'));
+
+      var tradeReal = quote.k1;
+      if (tradeReal) {
+        quote.k1 = tradeReal.match(/>(\d+.\d+)</)[1];
+      }
+
+      var params = _.values(_.pick(quote, 's', 'a', 'b2', 'a5', 'b', 'b3', 'b6',
+          'v', 'l1', 'k1'));
       params.splice(1, 0, ts);
       if (_.filter(params, function(p) {return p!==null;}).length <
           params.length) {
         return;
       }
 
-      return pMysql.pQuery('insert into quotes (symbol, ts, ask, ask_size, ' +
-          'bid, bid_size, volume) values (' +
+      return pMysql.pQuery('insert into quotes (symbol, ts, ask, ask_rt, ' +
+          'ask_size, bid, bid_rt, bid_size, volume, last_trade, ' +
+          'last_trade_rt) values (' +
           '(select id from symbols s where s.symbol = ?)' +
-          ', from_unixtime(?), ?, ?, ?, ?, ?)',
+          ', from_unixtime(?), ?, ?, ?, ?, ?, ?, ?, ?, ?)',
           params
       )
       .then(function(res) {
