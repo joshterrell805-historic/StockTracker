@@ -57,7 +57,7 @@ function parseQuotes(quotes) {
           assert.strictEqual(memo[field].indexOf('.'), -1);
           assert.notStrictEqual(memo[field], 'N/A');
           memo[field] = memo[field].trim();
-          assert(memo[field].length >= 1 && memo[field].length <= 3);
+          assert(memo[field].length >= 1);
 
           while(values[used] !== null && values[used].indexOf('.') === -1) {
             memo[field] += values[used++];
