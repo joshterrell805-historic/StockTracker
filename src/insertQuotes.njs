@@ -40,6 +40,7 @@ pMysql.pQuery('select unix_timestamp(max(ts)) as ts from quotes')
     }
   });
 })
+.then(pMysql.pEnd.bind(pMysql))
 .done();
 
 function pInsert(ts, quotes) {
