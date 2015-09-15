@@ -10,6 +10,8 @@ module.exports = parseQuotes;
  * recordQuotes.njs.
  */
 function parseQuotes(quotes) {
+  if (quotes[0].toLowerCase().indexOf('<!doctype html') === 0) return [];
+
   return _.chain(quotes)
   .map(function(quoteString, index) {
     if (quoteString.indexOf('No such ticker symbol.') !== -1) {

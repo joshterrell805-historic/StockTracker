@@ -63,5 +63,7 @@ function pInsert(ts, quotes) {
       'from_unixtime(?), ?, ?)')).join(',');
   p = _.flatten(p);
 
-  return pMysql.pQuery(q, p);
+  if (p.length) {
+    return pMysql.pQuery(q, p);
+  }
 }
