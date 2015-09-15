@@ -3,3 +3,4 @@
 /quotes/*
 !/quotes/.gitsave
 !/rss/.gitsave
+/dumps/*
